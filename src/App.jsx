@@ -3,6 +3,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 import { FinanceProvider } from './context/FinanceProvider'
+import { ThemeProvider } from './context/ThemeContext'
+import { ThemeToggle } from './components/ThemeToggle'
 
 import Dashboard from './pages/Dashboard'
 import Transactions from './pages/Transactions'
@@ -32,6 +34,7 @@ function AppShell() {
           <NavLink className="nav-link" to="/analytics">
             Analytics
           </NavLink>
+           <ThemeToggle />
         </nav>
       </header>
 
@@ -46,6 +49,7 @@ function AppShell() {
 
 function App() {
   return (
+    <ThemeProvider>
     <BrowserRouter>
       <FinanceProvider>
         <Routes>
@@ -62,6 +66,7 @@ function App() {
         </Routes>
       </FinanceProvider>
     </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
